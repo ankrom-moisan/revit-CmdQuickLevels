@@ -22,14 +22,16 @@ namespace QuickLevels
             ref string message, ElementSet elements)
 
         {
+            // The main method is cleaned up now to give a very high level overview of 
+            // what is being done in this application.
             _doc = commandData.Application.ActiveUIDocument.Document;
-            _floorPlanType = GetViewFamily(ViewFamily.FloorPlan);
-            _ceilingPlanType= GetViewFamily(ViewFamily.CeilingPlan);
+            _floorPlanType = GetViewFamily(ViewFamily.FloorPlan); // Get the Id of floor plan view types
+            _ceilingPlanType= GetViewFamily(ViewFamily.CeilingPlan); // Get the Id of ceiling plan view types
 
-            double offset = 20;
-            double maxLevel = GetMaxLevel() + offset;
+            double offset = 20; // This seems like something you might want to have user adjustable
+            double maxLevel = GetMaxLevel() + offset; // Abstract the proceess of finding the highest level
 
-            Result result = CreateLevel(maxLevel);
+            Result result = CreateLevel(maxLevel); // Abstract the process of creating levels and views
             return result;
         }
 
